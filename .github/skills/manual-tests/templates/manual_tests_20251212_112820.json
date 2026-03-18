@@ -1,0 +1,133 @@
+[
+  {
+    "name": "Add New User - Happy Path",
+    "description": "Verify that an administrator can successfully add a new user.",
+    "steps": [
+      {
+        "step": "Navigate to the 'Add User' interface."
+      },
+      {
+        "step": "Fill in the user information: Name = 'John Doe', Email = 'john.doe@example.com', Role = 'Editor'."
+      },
+      {
+        "step": "Click the 'Submit' button."
+      }
+    ],
+    "result": "A new user 'John Doe' is added successfully, and a confirmation message is displayed."
+  },
+  {
+    "name": "Modify Existing User - Happy Path",
+    "description": "Verify that an administrator can modify the details of an existing user.",
+    "steps": [
+      {
+        "step": "Navigate to the user list."
+      },
+      {
+        "step": "Select the user 'John Doe'."
+      },
+      {
+        "step": "Change the Email to 'john.new@example.com' and Role to 'Admin'."
+      },
+      {
+        "step": "Click the 'Save' button."
+      }
+    ],
+    "result": "User 'John Doe' is updated with the new email and role, and a confirmation message is displayed."
+  },
+  {
+    "name": "Delete User - Confirmation Required",
+    "description": "Verify that a confirmation prompt appears before deleting a user.",
+    "steps": [
+      {
+        "step": "Navigate to the user list."
+      },
+      {
+        "step": "Select the user 'John Doe'."
+      },
+      {
+        "step": "Click the 'Delete' button."
+      }
+    ],
+    "result": "A confirmation prompt appears asking for confirmation to delete the user 'John Doe'."
+  },
+  {
+    "name": "Add User - Validation for Required Fields",
+    "description": "Verify that validation messages are shown when required fields are missing.",
+    "steps": [
+      {
+        "step": "Navigate to the 'Add User' interface."
+      },
+      {
+        "step": "Leave the Name, Email, and Role fields empty."
+      },
+      {
+        "step": "Click the 'Submit' button."
+      }
+    ],
+    "result": "Validation messages are displayed indicating that Name, Email, and Role are required."
+  },
+  {
+    "name": "Add User - Invalid Email Format",
+    "description": "Verify that an error message appears for an invalid email format.",
+    "steps": [
+      {
+        "step": "Navigate to the 'Add User' interface."
+      },
+      {
+        "step": "Fill in the user information: Name = 'Jane Doe', Email = 'jane.doe@invalid', Role = 'Viewer'."
+      },
+      {
+        "step": "Click the 'Submit' button."
+      }
+    ],
+    "result": "An error message is displayed indicating that the email format is invalid."
+  },
+  {
+    "name": "Modify User - Non-existent User",
+    "description": "Verify that an error message appears when trying to modify a non-existent user.",
+    "steps": [
+      {
+        "step": "Navigate to the user list."
+      },
+      {
+        "step": "Attempt to select a user with a non-existent ID."
+      },
+      {
+        "step": "Click the 'Edit' button."
+      }
+    ],
+    "result": "An error message is displayed indicating that the user does not exist."
+  },
+  {
+    "name": "Delete Non-existent User",
+    "description": "Verify that an error message appears when trying to delete a non-existent user.",
+    "steps": [
+      {
+        "step": "Navigate to the user list."
+      },
+      {
+        "step": "Attempt to select a user with a non-existent ID."
+      },
+      {
+        "step": "Click the 'Delete' button."
+      }
+    ],
+    "result": "An error message is displayed indicating that the user does not exist."
+  },
+  {
+    "name": "Role Assignment - Verify Access Rights",
+    "description": "Verify that the correct access rights are assigned based on user roles.",
+    "steps": [
+      {
+        "step": "Add a user with Role = 'Admin'."
+      },
+      {
+        "step": "Log in as the new user."
+      },
+      {
+        "step": "Attempt to access admin functionality."
+      }
+    ],
+    "result": "The user is granted access to admin functionality as expected."
+  }
+]

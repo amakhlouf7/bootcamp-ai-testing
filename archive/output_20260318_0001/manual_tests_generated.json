@@ -1,0 +1,102 @@
+[
+  {
+    "name": "TC-01: Dashboard affiche les metriques cles (AC1)",
+    "description": "Verifier que les metriques de qualite (completude, doublons, valeurs manquantes) sont bien affichees sur le dashboard.",
+    "steps": [
+      {"step": "1. Se connecter a l application avec un compte Data Analyst."},
+      {"step": "2. Naviguer vers la section Dashboard de monitoring des donnees."},
+      {"step": "3. Observer les tuiles/widgets presentes sur le dashboard."},
+      {"step": "4. Verifier la presence d un indicateur de completude (ex: 98.5%)."},
+      {"step": "5. Verifier la presence d un indicateur de doublons (ex: 42 doublons detectes)."},
+      {"step": "6. Verifier la presence d un indicateur de valeurs manquantes (ex: 123 valeurs manquantes)."}
+    ],
+    "result": "Le dashboard affiche correctement les 3 metriques cles : taux de completude, nombre de doublons et nombre de valeurs manquantes, avec leurs valeurs actuelles."
+  },
+  {
+    "name": "TC-02: Dashboard affiche les donnees en temps reel (AC1)",
+    "description": "Verifier que les metriques affichees correspondent aux donnees les plus recentes et non a des donnees en cache obsoletes.",
+    "steps": [
+      {"step": "1. Se connecter et ouvrir le Dashboard de monitoring."},
+      {"step": "2. Relever les valeurs affichees pour chaque metrique ainsi que l horodatage de derniere mise a jour."},
+      {"step": "3. Attendre ou simuler une ingestion de nouvelles donnees dans le systeme source."},
+      {"step": "4. Rafraichir le dashboard manuellement (bouton Rafraichir)."},
+      {"step": "5. Comparer les nouvelles valeurs et l horodatage avec les valeurs relevees a l etape 2."}
+    ],
+    "result": "Les metriques sont mises a jour et l horodatage de derniere mise a jour est plus recent. Les nouvelles valeurs refletent l etat actuel des donnees."
+  },
+  {
+    "name": "TC-03: Configuration des seuils d alerte (AC2)",
+    "description": "Verifier qu un Data Analyst peut configurer les seuils d alerte pour chaque metrique.",
+    "steps": [
+      {"step": "1. Depuis le dashboard, cliquer sur le bouton Parametres ou Configurer les seuils."},
+      {"step": "2. Localiser le champ de configuration du seuil pour la metrique Completude."},
+      {"step": "3. Modifier la valeur du seuil de completude de 95% a 90%."},
+      {"step": "4. Localiser le champ de configuration du seuil pour la metrique Doublons."},
+      {"step": "5. Modifier la valeur du seuil de doublons de 5% a 3%."},
+      {"step": "6. Cliquer sur le bouton Enregistrer."},
+      {"step": "7. Quitter la page de configuration et revenir au dashboard."}
+    ],
+    "result": "Un message de confirmation Seuils mis a jour s affiche. Au retour sur le dashboard, les seuils configures (90% et 3%) sont pris en compte dans l affichage des alertes."
+  },
+  {
+    "name": "TC-04: Declenchement d alerte quand un seuil est depasse (AC2)",
+    "description": "Verifier qu une alerte visuelle est declenchee sur le dashboard lorsque la valeur d une metrique depasse le seuil configure.",
+    "steps": [
+      {"step": "1. Configurer le seuil de completude a 99% (valeur volontairement haute)."},
+      {"step": "2. Enregistrer le seuil et revenir au dashboard."},
+      {"step": "3. Observer les indicateurs visuels de la metrique Completude."},
+      {"step": "4. Verifier la couleur ou l icone associe a la metrique (rouge/orange attendu)."},
+      {"step": "5. Verifier la presence d un message ou badge d alerte."}
+    ],
+    "result": "La metrique Completude est mise en evidence visuellement (couleur rouge ou icone d avertissement) et un message d alerte est affiche indiquant que le seuil de 99% n est pas atteint."
+  },
+  {
+    "name": "TC-05: Mise a jour automatique des donnees toutes les 15 minutes (AC3)",
+    "description": "Verifier que les donnees du dashboard se rafraichissent automatiquement toutes les 15 minutes sans intervention de l utilisateur.",
+    "steps": [
+      {"step": "1. Ouvrir le dashboard et noter l horodatage de derniere mise a jour affiche."},
+      {"step": "2. Ne pas interagir avec le dashboard pendant 15 minutes (laisser la session ouverte)."},
+      {"step": "3. A t+15 minutes, observer l horodatage de derniere mise a jour."},
+      {"step": "4. Verifier que les donnees ont ete rafraichies sans action manuelle."},
+      {"step": "5. Verifier que l indicateur de chargement s est active puis desactive."}
+    ],
+    "result": "L horodatage de derniere mise a jour a change (t+15 min). Les donnees ont ete rafraichies automatiquement. Aucune action utilisateur n a ete requise."
+  },
+  {
+    "name": "TC-06: Export PDF du dashboard - Cas nominal (AC4)",
+    "description": "Verifier qu un Data Analyst peut exporter le dashboard complet au format PDF.",
+    "steps": [
+      {"step": "1. Ouvrir le dashboard de monitoring des donnees."},
+      {"step": "2. Verifier que les metriques et graphiques sont bien charges."},
+      {"step": "3. Cliquer sur le bouton Exporter ou Telecharger PDF."},
+      {"step": "4. Observer le declenchement du telechargement du fichier PDF."},
+      {"step": "5. Ouvrir le fichier PDF telecharge et verifier son contenu."}
+    ],
+    "result": "Un fichier PDF est genere et telecharge. Le PDF contient le titre du dashboard, les 3 metriques cles avec leurs valeurs, les graphiques et l horodatage de la derniere mise a jour."
+  },
+  {
+    "name": "TC-07: Contenu PDF conforme au dashboard affiche (AC4)",
+    "description": "Verifier que les donnees dans le PDF exporte correspondent exactement aux donnees affichees a l ecran au moment de l export.",
+    "steps": [
+      {"step": "1. Ouvrir le dashboard et relever les valeurs exactes: completude, doublons, valeurs manquantes."},
+      {"step": "2. Relever l horodatage de derniere mise a jour affiche."},
+      {"step": "3. Cliquer sur Exporter PDF sans rafraichir la page entre-temps."},
+      {"step": "4. Ouvrir le fichier PDF et comparer les valeurs de chaque metrique."},
+      {"step": "5. Comparer l horodatage present dans le PDF avec celui releve a l etape 2."}
+    ],
+    "result": "Les valeurs du PDF sont identiques a celles affichees sur le dashboard. L horodatage correspond. Aucune donnee n est manquante ou differente."
+  },
+  {
+    "name": "TC-08: Gestion d erreur - Source de donnees indisponible",
+    "description": "Verifier le comportement du dashboard lorsque la source de donnees est inaccessible.",
+    "steps": [
+      {"step": "1. Simuler l indisponibilite de la source de donnees en environnement de test."},
+      {"step": "2. Ouvrir le dashboard de monitoring."},
+      {"step": "3. Observer le comportement des tuiles de metriques."},
+      {"step": "4. Verifier la presence d un message d erreur ou d un indicateur d indisponibilite."},
+      {"step": "5. Retablir la connexion a la source de donnees."},
+      {"step": "6. Recharger le dashboard et verifier la reprise normale des metriques."}
+    ],
+    "result": "Lors de l indisponibilite, un message Donnees indisponibles s affiche sur les tuiles impactees. Apres retablissement et rechargement, le dashboard affiche a nouveau les metriques correctes."
+  }
+]

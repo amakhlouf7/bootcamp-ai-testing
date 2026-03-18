@@ -1,0 +1,1 @@
+Previous committed versions are unavailable because this repository has no HEAD commit yet (git rev-parse --verify HEAD fails). This folder stores a baseline snapshot of the currently updated Python files.

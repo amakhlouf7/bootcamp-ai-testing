@@ -1,0 +1,26 @@
+Test Case Identifier;Type;Summary;Action;Data;Expected Result;Test plan;Issue key;Test Set
+1;Manual;Add New User - Happy Path;;Navigate to the 'Add User' interface.;;A new user 'John Doe' is added successfully, and a confirmation message is displayed.;;CTC2S-234;
+1;;;;;Fill in the user information: Name = 'John Doe', Email = 'john.doe@example.com', Role = 'Editor'.;;A new user 'John Doe' is added successfully, and a confirmation message is displayed.;;CTC2S-234;
+1;;;;;Click the 'Submit' button.;;A new user 'John Doe' is added successfully, and a confirmation message is displayed.;;CTC2S-234;
+2;Manual;Modify Existing User - Happy Path;;Navigate to the user list.;;User 'John Doe' is updated with the new email and role, and a confirmation message is displayed.;;CTC2S-234;
+2;;;;;Select the user 'John Doe'.;;User 'John Doe' is updated with the new email and role, and a confirmation message is displayed.;;CTC2S-234;
+2;;;;;Change the Email to 'john.new@example.com' and Role to 'Admin'.;;User 'John Doe' is updated with the new email and role, and a confirmation message is displayed.;;CTC2S-234;
+2;;;;;Click the 'Save' button.;;User 'John Doe' is updated with the new email and role, and a confirmation message is displayed.;;CTC2S-234;
+3;Manual;Delete User - Confirmation Required;;Navigate to the user list.;;A confirmation prompt appears asking for confirmation to delete the user 'John Doe'.;;CTC2S-234;
+3;;;;;Select the user 'John Doe'.;;A confirmation prompt appears asking for confirmation to delete the user 'John Doe'.;;CTC2S-234;
+3;;;;;Click the 'Delete' button.;;A confirmation prompt appears asking for confirmation to delete the user 'John Doe'.;;CTC2S-234;
+4;Manual;Add User - Validation for Required Fields;;Navigate to the 'Add User' interface.;;Validation messages are displayed indicating that Name, Email, and Role are required.;;CTC2S-234;
+4;;;;;Leave the Name, Email, and Role fields empty.;;Validation messages are displayed indicating that Name, Email, and Role are required.;;CTC2S-234;
+4;;;;;Click the 'Submit' button.;;Validation messages are displayed indicating that Name, Email, and Role are required.;;CTC2S-234;
+5;Manual;Add User - Invalid Email Format;;Navigate to the 'Add User' interface.;;An error message is displayed indicating that the email format is invalid.;;CTC2S-234;
+5;;;;;Fill in the user information: Name = 'Jane Doe', Email = 'jane.doe@invalid', Role = 'Viewer'.;;An error message is displayed indicating that the email format is invalid.;;CTC2S-234;
+5;;;;;Click the 'Submit' button.;;An error message is displayed indicating that the email format is invalid.;;CTC2S-234;
+6;Manual;Modify User - Non-existent User;;Navigate to the user list.;;An error message is displayed indicating that the user does not exist.;;CTC2S-234;
+6;;;;;Attempt to select a user with a non-existent ID.;;An error message is displayed indicating that the user does not exist.;;CTC2S-234;
+6;;;;;Click the 'Edit' button.;;An error message is displayed indicating that the user does not exist.;;CTC2S-234;
+7;Manual;Delete Non-existent User;;Navigate to the user list.;;An error message is displayed indicating that the user does not exist.;;CTC2S-234;
+7;;;;;Attempt to select a user with a non-existent ID.;;An error message is displayed indicating that the user does not exist.;;CTC2S-234;
+7;;;;;Click the 'Delete' button.;;An error message is displayed indicating that the user does not exist.;;CTC2S-234;
+8;Manual;Role Assignment - Verify Access Rights;;Add a user with Role = 'Admin'.;;The user is granted access to admin functionality as expected.;;CTC2S-234;
+8;;;;;Log in as the new user.;;The user is granted access to admin functionality as expected.;;CTC2S-234;
+8;;;;;Attempt to access admin functionality.;;The user is granted access to admin functionality as expected.;;CTC2S-234;

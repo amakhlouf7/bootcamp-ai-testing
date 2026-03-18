@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# Secrets — never commit
+.env
+
+# Build outputs
+output/
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
