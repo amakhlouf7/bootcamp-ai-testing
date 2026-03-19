@@ -33,3 +33,9 @@ Fournis :
 - ❌ Pas de CSS bruts ou XPath complexes
 - ❌ Pas d'attentes globales dans les specs
 - ❌ Pas de duplication de sélecteurs
+
+## Best Practices
+- **DRY** : Ne répète pas les sélecteurs ou les actions communes, utilise des fonctions ou des custom commands.
+- **Clarity** : Les tests doivent être lisibles et compréhensibles par tous
+- **Maintainability** : Organise les tests et les Page Objects pour faciliter les mises à jour futures.
+- **Performance** : Évite les tests trop longs ou complexes, privilégie les tests rapides et ciblés.
