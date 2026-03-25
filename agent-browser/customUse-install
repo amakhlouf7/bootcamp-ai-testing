@@ -1,0 +1,5 @@
+#Install virtual env
+python -m venv venv
+#install independance
+pip install browser-use playwright langchain-anthropic python-dotenv
+playwright install chromium
