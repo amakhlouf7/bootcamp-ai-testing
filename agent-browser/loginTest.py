@@ -1,11 +1,15 @@
 from browser_use import Agent
-from langchain_anthropic import ChatAnthropic
+from anthropic import Anthropic
 from dotenv import load_dotenv
 import asyncio
+import os
 
 load_dotenv()
 
 async def test_login():
+    # Utilisation directe du client Anthropic
+    client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+    
     agent = Agent(
         task="""
         1. Va sur https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
@@ -14,7 +18,7 @@ async def test_login():
         4. Clique sur LOGIN
         5. Vérifie le Dashboard
         """,
-        llm=ChatAnthropic(model="claude-sonnet-4-20250514")
+        llm=client
     )
     result = await agent.run()
     print(f"✅ Résultat: {result}")
