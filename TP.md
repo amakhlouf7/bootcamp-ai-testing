@@ -1,9 +1,9 @@
-Travaux Pratiques (Exercices à réaliser sur VS Code)
-Exercice 1 : Le Gardien du Code (Instructions)
+#### Travaux Pratiques (Exercices à réaliser sur VS Code)
+#### Exercice 1 : Le Gardien du Code (Instructions)
 Énoncé : Modifiez votre fichier copilot-instructions.md pour ajouter une règle : "Interdire l'utilisation de var et let dans les fichiers Cypress, utiliser uniquement const".
 Correction : Ajouter sous la section Cypress : - Variables : Utilise exclusivement 'const' pour garantir l'immutabilité des sélecteurs et des données de test.
 
-Exercice 2 : Création d'un Expert (Agent)
+#### Exercice 2 : Création d'un Expert (Agent)
 Énoncé : Créez un fichier .github/agents/bruno-expert.agent.md. Cet agent doit être spécialisé dans la conversion de commandes curl en fichiers .bru.
 Correction : ```yaml
 name: Bruno-Expert

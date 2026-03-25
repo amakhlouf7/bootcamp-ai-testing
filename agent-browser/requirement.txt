@@ -1,4 +1,4 @@
-browser-use
+browser-use==0.12.5
 playwright
-langchain-anthropic
+anthropic==0.76.0
 python-dotenv
