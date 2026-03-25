@@ -1,0 +1,58 @@
+stages:
+  - test
+  - rca
+  - heal
+
+variables:
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+  PYTHONUNBUFFERED: "1"
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push"
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_PIPELINE_SOURCE == "web"
+
+default:
+  image: python:3.12
+  before_script:
+    - python --version
+    - pip install -U pip
+    - pip install python-dotenv
+
+run_tests:
+  stage: test
+  script:
+    - mkdir -p output
+    - pip install pytest
+    - pytest tests -q --junitxml=output/junit.xml || true
+  artifacts:
+    when: always
+    expire_in: 7 days
+    paths:
+      - output/junit.xml
+      - output/
+
+rca_analysis:
+  stage: rca
+  needs: ["run_tests"]
+  script:
+    - python LLMProxy/RCA/rca_analyzer.py --report output/junit.xml --format junit --output output/rca_report.json
+  artifacts:
+    when: always
+    expire_in: 14 days
+    paths:
+      - output/rca_report.json
+      - output/
+
+flaky_auto_heal:
+  stage: heal
+  needs: ["rca_analysis"]
+  script:
+    - python LLMProxy/autoHealing/auto_heal_flaky.py --rca-report output/rca_report.json --output output/flaky_healing_report.json
+  artifacts:
+    when: always
+    expire_in: 14 days
+    paths:
+      - output/flaky_healing_report.json
+      - output/
