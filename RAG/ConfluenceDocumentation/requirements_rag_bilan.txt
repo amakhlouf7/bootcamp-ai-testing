@@ -1,0 +1,7 @@
+# ── Bilan Confluence RAG — Dépendances Python ──────────────────────────────────
+# Installe via : pip install -r requirements_rag_bilan.txt
+
+anthropic>=0.40.0          # Client Claude (Anthropic API)
+chromadb>=0.5.0            # Vector database persistée (RAG retrieval)
+requests>=2.31.0           # Appels REST Jira + Confluence
+python-dotenv>=1.0.0       # Chargement .env
